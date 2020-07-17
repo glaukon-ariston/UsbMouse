@@ -165,9 +165,6 @@ USB messages, even if they address another (low-speed) device on the same bus.
 
 struct usbRequest;  /* forward declaration */
 
-#ifdef __cplusplus
-extern "C"{
-#endif
 USB_PUBLIC void usbInit(void);
 /* This function must be called before interrupts are enabled and the main
  * loop is entered. We exepct that the PORT and DDR bits for D+ and D- have
@@ -181,21 +178,12 @@ USB_PUBLIC void usbPoll(void);
  * Please note that debug outputs through the UART take ~ 0.5ms per byte
  * at 19200 bps.
  */
-#ifdef __cplusplus
-} // extern "C"
-#endif
 extern uchar *usbMsgPtr;
 /* This variable may be used to pass transmit data to the driver from the
  * implementation of usbFunctionWrite(). It is also used internally by the
  * driver for standard control requests.
  */
-#ifdef __cplusplus
-extern "C"{
-#endif
 USB_PUBLIC usbMsgLen_t usbFunctionSetup(uchar data[8]);
-#ifdef __cplusplus
-} // extern "C"
-#endif
 /* This function is called when the driver receives a SETUP transaction from
  * the host which is not answered by the driver itself (in practice: class and
  * vendor requests). All control transfers start with a SETUP transaction where
@@ -229,13 +217,7 @@ USB_PUBLIC usbMsgLen_t usbFunctionDescriptor(struct usbRequest *rq);
  * data. See the documentation of usbFunctionSetup() above for more info.
  */
 #if USB_CFG_HAVE_INTRIN_ENDPOINT
-#ifdef __cplusplus
-extern "C"{
-#endif
 USB_PUBLIC void usbSetInterrupt(uchar *data, uchar len);
-#ifdef __cplusplus
-} // extern "C"
-#endif
 /* This function sets the message which will be sent during the next interrupt
  * IN transfer. The message is copied to an internal buffer and must not exceed
  * a length of 8 bytes. The message may be 0 bytes long just to indicate the
@@ -332,13 +314,7 @@ extern unsigned usbCrc16(unsigned data, uchar len);
  * data. We enforce 16 bit calling conventions for compatibility with IAR's
  * tiny memory model.
  */
-#ifdef __cplusplus
-extern "C"{
-#endif
 extern unsigned usbCrc16Append(unsigned data, uchar len);
-#ifdef __cplusplus
-} // extern "C"
-#endif
 #define usbCrc16Append(data, len)    usbCrc16Append((unsigned)(data), len)
 /* This function is equivalent to usbCrc16() above, except that it appends
  * the 2 bytes CRC (lowbyte first) in the 'data' buffer after reading 'len'
@@ -474,43 +450,43 @@ extern volatile schar   usbRxLen;
 #ifndef __ASSEMBLER__
 extern
 #if !(USB_CFG_DESCR_PROPS_DEVICE & USB_PROP_IS_RAM)
-PROGMEM
+PROGMEM const
 #endif
 char usbDescriptorDevice[];
 
 extern
 #if !(USB_CFG_DESCR_PROPS_CONFIGURATION & USB_PROP_IS_RAM)
-PROGMEM
+PROGMEM const
 #endif
 char usbDescriptorConfiguration[];
 
 extern
 #if !(USB_CFG_DESCR_PROPS_HID_REPORT & USB_PROP_IS_RAM)
-PROGMEM
+PROGMEM const
 #endif
 char usbDescriptorHidReport[];
 
 extern
 #if !(USB_CFG_DESCR_PROPS_STRING_0 & USB_PROP_IS_RAM)
-PROGMEM
+PROGMEM const
 #endif
 char usbDescriptorString0[];
 
 extern
 #if !(USB_CFG_DESCR_PROPS_STRING_VENDOR & USB_PROP_IS_RAM)
-PROGMEM
+PROGMEM const
 #endif
 int usbDescriptorStringVendor[];
 
 extern
 #if !(USB_CFG_DESCR_PROPS_STRING_PRODUCT & USB_PROP_IS_RAM)
-PROGMEM
+PROGMEM const
 #endif
 int usbDescriptorStringDevice[];
 
 extern
 #if !(USB_CFG_DESCR_PROPS_STRING_SERIAL_NUMBER & USB_PROP_IS_RAM)
-PROGMEM
+PROGMEM const
 #endif
 int usbDescriptorStringSerialNumber[];
 
