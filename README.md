@@ -3,6 +3,8 @@ UsbMouse
 
 Library to set any arduino as a USB mouse.
 
+<img src="images/IMG_20200520_220437.jpg" width="300px" hspace="1em" />
+
 Move mouse pointer by calling method:
  UsbMouse.move(x,y,z) 
 where z indicates the wheel.
@@ -27,6 +29,10 @@ Hardware
 * two resistors of  2.2KOhm 
 * one resistor of 68 Ohm
 * one zener diode: 3.6V, 0.5W Zener Diodes (1N5227) or 0.25W
+
+<img src="images/IMG_20200520_220155.jpg" width="300px" hspace="1em" /> <img src="images/IMG_20200520_220215.jpg" width="300px" hspace="1em" />
+<img src="images/IMG_20200520_220250.jpg" width="300px" hspace="1em" /> <img src="images/IMG_20200520_220358.jpg" width="300px" hspace="1em" />
+<img src="images/IMG_20200520_224050.jpg" width="300px" hspace="1em" />
 
 Pinouts
 =======
