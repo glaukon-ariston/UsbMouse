@@ -3,7 +3,7 @@ UsbMouse
 
 Library to set any arduino as a USB mouse.
 
-<img src="images/IMG_20200520_220437.jpg" width="300px" hspace="1em" />
+<img src="images/IMG_20200520_220437.jpg" width="800px" hspace="1em" />
 
 Move mouse pointer by calling method:
  UsbMouse.move(x,y,z) 
@@ -32,7 +32,7 @@ Hardware
 
 <img src="images/IMG_20200520_220155.jpg" width="300px" hspace="1em" /> <img src="images/IMG_20200520_220215.jpg" width="300px" hspace="1em" />
 <img src="images/IMG_20200520_220250.jpg" width="300px" hspace="1em" /> <img src="images/IMG_20200520_220358.jpg" width="300px" hspace="1em" />
-<img src="images/IMG_20200520_224050.jpg" width="300px" hspace="1em" />
+<img src="images/IMG_20200520_224050.jpg" width="600px" hspace="1em" />
 
 Pinouts
 =======
